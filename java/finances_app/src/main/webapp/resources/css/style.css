@@ -22,7 +22,11 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
-
+.btn-default {
+    color: #0000cc !important;
+    background-color: #4cae4c !important;
+    border-color: #5B5B5B !important;
+}
 #id {
     width: 90%;
 }
