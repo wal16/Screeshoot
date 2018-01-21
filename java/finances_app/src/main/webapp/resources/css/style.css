@@ -31,6 +31,10 @@
     width: 90%;
 }
 
-.body {
-    background-color: #f3c17a !important;
+body {
+    background-color: #fbed50 !important;
+}
+
+.container-fluid {
+    background-color: #000000 !important;
 }
