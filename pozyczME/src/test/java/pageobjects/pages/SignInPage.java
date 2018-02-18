@@ -5,15 +5,13 @@ import org.openqa.selenium.support.FindBy;
 
 public class SignInPage {
 
-    private WebDriver driver;
-
-    @FindBy(css = "tab-tab-1")
+    @FindBy(css = "a#tab-tab-1")
     private WebElement logSide;
 
-    @FindBy(id = "username")
+    @FindBy(css = "#tab-pane-1 input#username.form-control")
     private WebElement username;
 
-    @FindBy(id = "password")
+    @FindBy(css = "#tab-pane-1 input#password.form-control")
     private WebElement password;
 
     @FindBy(xpath = "//button[text()='Zaloguj']")
@@ -22,20 +20,14 @@ public class SignInPage {
     @FindBy(xpath = "//a[text()='Wyloguj'")
     private WebElement logOutbutton;
 
-    public void getUrl(String string){
-        driver.get(string);
-    }
-
     public void clickOnLogSide(){
         logSide.click();
     }
+
     public void setUserData(String name, String pass){
         username.sendKeys(name);
         password.sendKeys(pass);
-
     }
-
-
-
+    public void clickOnSignIn() {logInbutton.click();}
 
 }

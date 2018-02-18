@@ -6,5 +6,13 @@ import org.openqa.selenium.support.FindBy;
 public class MainPage {
 
     @FindBy(xpath = "//a[text()='Wyloguj'")
-    WebElement logOutbutton;
+    private WebElement logOutbutton;
+
+    public WebElement getLogOutbutton() {
+        return logOutbutton;
+    }
+
+    public void clickOnLogOut (){
+        logOutbutton.click();
+    }
 }
