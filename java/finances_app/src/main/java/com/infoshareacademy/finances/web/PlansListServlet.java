@@ -53,7 +53,12 @@ public class PlansListServlet extends HttpServlet {
         UserInfo userInfo = userSessionData.getUserInfo();
         Long userId=userInfoRepository.findUserId(userInfo.getMail());
 
-        List<PlanCreationDto> allPlans = plansRepository.findAllPlans(userId);
+        List<PlanCreationDto> allPlans;
+        if(request.getParameter("sort")!= null ){
+            allPlans = plansRepository.findAllPlans(userId, request.getParameter("sort"));
+        }else {
+            allPlans = plansRepository.findAllPlans(userId);
+        }
         List<LstList> fundList = assetService.returnAllFunds();
 
         List<String> expiredPlans = allPlans.stream()

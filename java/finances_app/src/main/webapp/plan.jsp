@@ -33,6 +33,15 @@
 
     <h1>Your plans</h1>
 
+    <form action="/plansList" method="get">
+        <input class="hidden" name="token" value="${token}"/>
+        <select name="sort">
+            <option value="BUY">BUY</option>
+            <option value="SELL">SELL</option>
+        </select>
+        <button class="btn btn-default" type="submit">Show</button>
+    </form>
+
     <form action="/deleteEdit" method="post">
         <input class="hidden" name="token" value="${token}"/>
         <table class="table table-hover">
