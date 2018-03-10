@@ -59,7 +59,6 @@ public class Favorites extends BaseClassTest {
         mywait.waitForElementToBeClickable(driver, mainPage.getMenuButtonMyProfile());
         mainPage.clickOnMyProfile();
         mywait.waitForElementToBeVisible(driver, myProfilePage.getGameName());
-        System.out.println(myProfilePage.getGameName().getText());
         assertTrue(myProfilePage.getGameName().getText().length() > 0);
     }
 
@@ -70,8 +69,8 @@ public class Favorites extends BaseClassTest {
         mainPage.clickOnHeartbutton();
         mywait.waitForElementToBeClickable(driver, mainPage.getMenuButtonMyProfile());
         mainPage.clickOnMyProfile();
-        mywait.waitForElementToBeClickable(driver, myProfilePage.getGameName());
-        assertTrue("Game was not removed from favorites", myProfilePage.getGameName().getText().equals("Scrabble"));
+        mywait.waitForElementToBeClickable(driver, myProfilePage.getAlertName());
+        assertTrue("Game was not removed from favorites", myProfilePage.getAlertName().getText().contains("Nie masz"));
     }
 
     @After
