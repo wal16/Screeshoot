@@ -18,7 +18,7 @@ public class MainPage {
     @FindBy(xpath = "//a[text()='Mój profil']")
     private WebElement menuButtonMyProfile;
 
-    @FindBy(xpath = "//html//tr[1]/td[4]/button[1]")
+    @FindBy(xpath = "//tr[1]/td[4]/button[1]/span")
     private WebElement heartButton;
 
     @FindBy(xpath = "//html//span[1]/span[1]/span[1]")

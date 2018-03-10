@@ -53,11 +53,14 @@ public class Favorites extends BaseClassTest {
     @Test
     public void addToFavorites() {
 
+        mywait.waitForElementToBeClickable(driver, mainPage.getMenuButtonOurGames());
         mainPage.clickOnOurGames();
         mainPage.clickOnHeartbutton();
         mywait.waitForElementToBeClickable(driver, mainPage.getMenuButtonMyProfile());
         mainPage.clickOnMyProfile();
-        assertTrue(myProfilePage.getGameName().getText().equals("Scrabble"));
+        mywait.waitForElementToBeVisible(driver, myProfilePage.getGameName());
+        System.out.println(myProfilePage.getGameName().getText());
+        assertTrue(myProfilePage.getGameName().getText().length() > 0);
     }
 
     @Test
@@ -67,6 +70,7 @@ public class Favorites extends BaseClassTest {
         mainPage.clickOnHeartbutton();
         mywait.waitForElementToBeClickable(driver, mainPage.getMenuButtonMyProfile());
         mainPage.clickOnMyProfile();
+        mywait.waitForElementToBeClickable(driver, myProfilePage.getGameName());
         assertTrue("Game was not removed from favorites", myProfilePage.getGameName().getText().equals("Scrabble"));
     }
 
