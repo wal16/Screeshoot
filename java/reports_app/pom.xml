@@ -123,6 +123,7 @@
                         <server-arg>-Djboss.http.port=8082</server-arg>
                         <server-arg>-Djboss.management.http.port=9992</server-arg>
                     </server-args>
+                    <jvmArgs>-agentlib:jdwp=transport=dt_socket,address=8788,server=y,suspend=y</jvmArgs>
                     <beforeDeployment>
                         <commands>
                             <command>data-source add --jndi-name=java:jboss/datasources/reportsDS --name=reportsDS
