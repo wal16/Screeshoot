@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns2:InputTestData xmlns:ns2="urn:org:easetech:easytest:1.0">
+    <TestMethod name="testLoginWithWrongData">
+        <Description>Different User Registration Tests
+        </Description>
+
+        <TestRecord id="1">
+            <Description>User 1</Description>
+            <InputData>
+                <Entry key="name" value="Jan.Nowak" />
+                <Entry key="pass" value="password" />
+            </InputData>
+        </TestRecord>
+
+        <TestRecord id="2">
+            <Description>User 2</Description>
+            <InputData>
+                <Entry key="name" value="Jan.Kowalski" />
+                <Entry key="pass" value="123asdf" />
+            </InputData>
+        </TestRecord>
+
+        <TestRecord id="3">
+        <Description>User 3</Description>
+        <InputData>
+            <Entry key="name" value="Janek" />
+            <Entry key="pass" value="Janek1" />
+        </InputData>
+    </TestRecord>
+
+        <TestRecord id="4">
+            <Description>User 4</Description>
+            <InputData>
+                <Entry key="name" value="Maciek" />
+                <Entry key="pass" value="!@#$%R" />
+            </InputData>
+        </TestRecord>
+
+        <TestRecord id="5">
+            <Description>User 5</Description>
+            <InputData>
+                <Entry key="name" value="Karol" />
+                <Entry key="pass" value="K1234!@$" />
+            </InputData>
+        </TestRecord>
+
+    </TestMethod>
+</ns2:InputTestData>
