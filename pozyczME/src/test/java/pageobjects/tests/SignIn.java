@@ -1,50 +1,47 @@
 package pageobjects.tests;
+import org.easetech.easytest.annotation.DataLoader;
+import org.easetech.easytest.annotation.Param;
+import org.easetech.easytest.loader.LoaderType;
+import org.easetech.easytest.runner.DataDrivenTestRunner;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.support.PageFactory;
+import pageobjects.BaseClassTest;
+import pageobjects.User;
 import pageobjects.pages.MainPage;
 import pageobjects.Waits;
 import pageobjects.pages.SignInPage;
+import static org.junit.Assert.assertTrue;
 
-public class SignIn {
+@RunWith(DataDrivenTestRunner.class)
+@DataLoader(filePaths = { "src/test/resources/logIn.xml" }, loaderType = LoaderType.XML, writeData = false)
+public class SignIn extends BaseClassTest{
 
-    private static final String URL = "http://app.pinapple.jdqz1.is-academy.pl/";
-
-    private WebDriver driver;
-
-    private SignInPage sign;
-    private MainPage mainPage;
-    private Waits wait = new Waits();
+    private SignInPage signIn;
 
     @Before
     public void setUp() {
 
-        sign = PageFactory.initElements(driver, SignInPage.class);
-        mainPage = PageFactory.initElements(driver, MainPage.class);
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
-        driver = new ChromeDriver();
-        driver.get(URL);
+        prepareDriver();
+        mywait = new Waits();
+        signIn = PageFactory.initElements(driver, SignInPage.class);
 
     }
 
     @Test
-    public void testLoginWithGoodData() {
-
-        sign.clickOnLogSide();
-        sign.setUserData("aaaaa", "12345");
-        sign.clickOnSignIn();
-
-
-
-        assertTrue(mainPage.getLogOutbutton().getText().equals("Wyloguj"));
+    public void testLoginWithWrongData(@Param(name = "name") String name,
+                                       @Param(name = "pass") String pass){
+        user = new User(name, pass, "");
+        signIn.clickOnLogSide();
+        signIn.setUserData(user);
+        signIn.clickOnSignIn();
+        mywait.waitForElementToBeVisible(driver, signIn.getAlert());
+        assertTrue("Alert isn't displayed", signIn.showAlert());
     }
 
-
-
-//    @After
-//    public void tearDown() { driver.close(); }
+    @After
+    public void tearDown() { closeDriver(); }
 
 }

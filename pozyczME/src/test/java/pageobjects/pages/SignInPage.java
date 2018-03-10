@@ -1,33 +1,46 @@
 package pageobjects.pages;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pageobjects.User;
 
 public class SignInPage {
 
-    @FindBy(css = "a#tab-tab-1")
+    @FindBy(linkText = "Logowanie")
     private WebElement logSide;
 
-    @FindBy(css = "#tab-pane-1 input#username.form-control")
+    @FindBy(xpath = "//div[@id='tab-pane-1']//input[@id='username']")
     private WebElement username;
 
-    @FindBy(css = "#tab-pane-1 input#password.form-control")
+    @FindBy(xpath = "//div[@id='tab-pane-1']//input[@id='password']")
     private WebElement password;
 
     @FindBy(xpath = "//button[text()='Zaloguj']")
     private WebElement logInbutton;
 
-    @FindBy(xpath = "//a[text()='Wyloguj'")
-    private WebElement logOutbutton;
+    public WebElement getAlert() {
+        return alert;
+    }
+
+    @FindBy (css = "div.alert")
+    private WebElement alert;
+
+    public WebElement getUsername() {
+        return username;
+    }
+
+    public WebElement getLogSide() {
+        return logSide;
+    }
 
     public void clickOnLogSide(){
         logSide.click();
     }
 
-    public void setUserData(String name, String pass){
-        username.sendKeys(name);
-        password.sendKeys(pass);
+    public void setUserData(User user){
+        username.sendKeys(user.getName());
+        password.sendKeys(user.getPass());
     }
     public void clickOnSignIn() {logInbutton.click();}
 
+    public boolean showAlert() { return alert.isDisplayed();}
 }
