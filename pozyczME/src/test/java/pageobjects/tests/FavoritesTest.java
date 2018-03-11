@@ -21,44 +21,27 @@ import static org.junit.Assert.*;
 
 public class FavoritesTest extends BaseClassTest {
 
-    private SignInPage signIn;
-    private SignUpPage signUp;
-    private MainPage mainPage;
     private MyProfilePage myProfilePage;
 
     @Before
     public void setUp() {
 
         prepareDriver();
-        signIn = PageFactory.initElements(driver, SignInPage.class);
-        mainPage = PageFactory.initElements(driver, MainPage.class);
-        signUp = PageFactory.initElements(driver, SignUpPage.class);
+        initializeBasicPageFactory();
         myProfilePage = PageFactory.initElements(driver, MyProfilePage.class);
-        mywait = new Waits();
-        user = new User("aaaaa", "12345", "www@wp.pl");
-
-        mywait.waitForElementToBeVisible(driver, signIn.getUsername());
-        signUp.clickOnRegisterSide();
-        mywait.waitForElementToBeClickable(driver, signUp.getEmail());
-        signUp.setUserData(user);
-        signUp.clickOnRegister();
-        signIn.clickOnLogSide();
-        mywait.waitForElementToBeVisible(driver, signIn.getUsername());
-        signIn.setUserData(user);
-        signIn.clickOnSignIn();
-        mywait.waitForElementToBeVisible(driver, mainPage.getLogOutbutton());
+        RegisterAndLogin(new User("aaaaa", "12345", "www@wp.pl"));
 
     }
 
     @Test
     public void addToFavorites() {
 
-        mywait.waitForElementToBeClickable(driver, mainPage.getMenuButtonOurGames());
+        mywait.waitForElementToBeClickable( mainPage.getMenuButtonOurGames());
         mainPage.clickOnOurGames();
         mainPage.clickOnHeartbutton();
-        mywait.waitForElementToBeClickable(driver, mainPage.getMenuButtonMyProfile());
+        mywait.waitForElementToBeClickable( mainPage.getMenuButtonMyProfile());
         mainPage.clickOnMyProfile();
-        mywait.waitForElementToBeVisible(driver, myProfilePage.getGameName());
+        mywait.waitForElementToBeVisible( myProfilePage.getGameName());
         assertTrue(myProfilePage.getGameName().getText().length() > 0);
     }
 
@@ -67,14 +50,10 @@ public class FavoritesTest extends BaseClassTest {
 
         mainPage.clickOnOurGames();
         mainPage.clickOnHeartbutton();
-        mywait.waitForElementToBeClickable(driver, mainPage.getMenuButtonMyProfile());
+        mywait.waitForElementToBeClickable( mainPage.getMenuButtonMyProfile());
         mainPage.clickOnMyProfile();
-        mywait.waitForElementToBeClickable(driver, myProfilePage.getAlertName());
+        mywait.waitForElementToBeClickable( myProfilePage.getAlertName());
         assertTrue("Game was not removed from favorites", myProfilePage.getAlertName().getText().contains("Nie masz"));
     }
 
-    @After
-    public void tearDown() {
-        closeDriver();
-    }
 }

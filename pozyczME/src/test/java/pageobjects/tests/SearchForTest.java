@@ -16,33 +16,14 @@ import static org.junit.Assert.assertTrue;
 public class SearchForTest extends BaseClassTest{
 
     private SearchForPage searchForPage;
-    private SignUpPage signUp;
-    private MainPage mainPage;
-    private SignInPage signIn;
-
 
     @Before
     public void setUp() {
 
         prepareDriver();
-        driver.manage().window().maximize();
+        initializeBasicPageFactory();
         searchForPage = PageFactory.initElements(driver, SearchForPage.class);
-        mainPage = PageFactory.initElements(driver, MainPage.class);
-        signIn = PageFactory.initElements(driver, SignInPage.class);
-        signUp = PageFactory.initElements(driver, SignUpPage.class);
-        mywait = new Waits();
-        user = new User("aaaaa", "12345", "www@wp.pl");
-
-        mywait.waitForElementToBeVisible(driver, signIn.getUsername());
-        signUp.clickOnRegisterSide();
-        mywait.waitForElementToBeClickable(driver, signUp.getEmail());
-        signUp.setUserData(user);
-        signUp.clickOnRegister();
-        signIn.clickOnLogSide();
-        mywait.waitForElementToBeVisible(driver, signIn.getUsername());
-        signIn.setUserData(user);
-        signIn.clickOnSignIn();
-        mywait.waitForElementToBeVisible(driver, mainPage.getLogOutbutton());
+        RegisterAndLogin(new User("aaaaa", "12345", "www@wp.pl"));
 
     }
 
@@ -69,9 +50,4 @@ public class SearchForTest extends BaseClassTest{
         assertTrue("SearchField is not displayed", searchForPage.isSearchFieldVisible());
     }
 
-    @After
-
-    public void tearDown() {
-        closeDriver();
-    }
 }

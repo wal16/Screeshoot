@@ -19,14 +19,11 @@ import static org.junit.Assert.assertTrue;
 @DataLoader(filePaths = { "src/test/resources/logIn.xml" }, loaderType = LoaderType.XML, writeData = false)
 public class SignInTest extends BaseClassTest{
 
-    private SignInPage signIn;
-
     @Before
     public void setUp() {
 
         prepareDriver();
-        mywait = new Waits();
-        signIn = PageFactory.initElements(driver, SignInPage.class);
+        initializeBasicPageFactory();
 
     }
 
@@ -37,11 +34,9 @@ public class SignInTest extends BaseClassTest{
         signIn.clickOnLogSide();
         signIn.setUserData(user);
         signIn.clickOnSignIn();
-        mywait.waitForElementToBeVisible(driver, signIn.getAlert());
+        mywait.waitForElementToBeVisible(signIn.getAlert());
         assertTrue("Alert isn't displayed", signIn.showAlert());
     }
 
-    @After
-    public void tearDown() { closeDriver(); }
 
 }

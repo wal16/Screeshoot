@@ -6,6 +6,8 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import pageobjects.Waits;
 
 public class MainPage {
 
@@ -24,6 +26,9 @@ public class MainPage {
     @FindBy(xpath = "//html//span[1]/span[1]/span[1]")
     private WebElement leftNumberOfPlayersButton;
 
+    @FindBy(xpath = "//span[@class='glyph glyphicon glyphicon-repeat']")
+    private WebElement undoButtonNumbersOfPlayers;
+
     public WebElement getLeftNumberOfPlayersButton() {
         return leftNumberOfPlayersButton;
     }
@@ -39,16 +44,11 @@ public class MainPage {
         undoButtonNumbersOfPlayers.click();
     }
 
-    @FindBy(xpath = "//span[@class='glyph glyphicon glyphicon-repeat']")
-    private WebElement undoButtonNumbersOfPlayers;
 
     public WebElement getLogOutbutton() {
         return logOutbutton;
     }
 
-    public void clickOnLogOut (){
-        logOutbutton.click();
-    }
 
     public WebElement getMenuButtonOurGames() {
         return menuButtonOurGames;
@@ -58,9 +58,6 @@ public class MainPage {
         return menuButtonMyProfile;
     }
 
-    public WebElement getHeartButton() {
-        return heartButton;
-    }
 
     public void clickOnOurGames() {
         menuButtonOurGames.click();
