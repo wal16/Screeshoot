@@ -1,6 +1,7 @@
 package pageobjects;
 
 import org.junit.After;
+import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -16,13 +17,21 @@ public class BaseClassTest {
     protected SignInPage signIn;
     protected User user;
 
+
+    public void prepareEnvForTests(){
+
+        prepareDriver();
+        initializeBasicPageFactoryWithWaits();
+        RegisterAndLogin(new User("aaaaa", "12345", "www@wp.pl"));
+    }
+
     protected void prepareDriver(){
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         driver = new ChromeDriver();
         driver.get(URL);
     }
 
-    protected void initializeBasicPageFactory(){
+    protected void initializeBasicPageFactoryWithWaits(){
 
         mywait = new Waits(driver);
         signIn = PageFactory.initElements(driver, SignInPage.class);

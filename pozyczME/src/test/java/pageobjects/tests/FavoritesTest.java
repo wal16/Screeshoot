@@ -25,12 +25,8 @@ public class FavoritesTest extends BaseClassTest {
 
     @Before
     public void setUp() {
-
-        prepareDriver();
-        initializeBasicPageFactory();
+        prepareEnvForTests();
         myProfilePage = PageFactory.initElements(driver, MyProfilePage.class);
-        RegisterAndLogin(new User("aaaaa", "12345", "www@wp.pl"));
-
     }
 
     @Test

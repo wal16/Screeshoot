@@ -21,11 +21,8 @@ import static org.junit.Assert.assertTrue;
 public class PlayerNumberTest extends BaseClassTest{
 
     @Before
-    public void setUp() {
-        prepareDriver();
-        driver.manage().window().maximize();
-        initializeBasicPageFactory();
-        RegisterAndLogin(new User("aaaaa", "12345", "www@wp.pl"));
+    public void setUp(){
+        prepareEnvForTests();
     }
 
     @Test

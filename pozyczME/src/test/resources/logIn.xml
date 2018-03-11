@@ -39,7 +39,7 @@
         <TestRecord id="5">
             <Description>User 5</Description>
             <InputData>
-                <Entry key="name" value="Karol" />
+                <Entry key="name" value=" " />
                 <Entry key="pass" value="K1234!@$" />
             </InputData>
         </TestRecord>

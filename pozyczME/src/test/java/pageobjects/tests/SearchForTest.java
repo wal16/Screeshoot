@@ -21,7 +21,7 @@ public class SearchForTest extends BaseClassTest{
     public void setUp() {
 
         prepareDriver();
-        initializeBasicPageFactory();
+        initializeBasicPageFactoryWithWaits();
         searchForPage = PageFactory.initElements(driver, SearchForPage.class);
         RegisterAndLogin(new User("aaaaa", "12345", "www@wp.pl"));
 
