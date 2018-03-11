@@ -4,10 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import pageobjects.Waits;
 
 public class MainPage {
 
@@ -29,12 +26,17 @@ public class MainPage {
     @FindBy(xpath = "//span[@class='glyph glyphicon glyphicon-repeat']")
     private WebElement undoButtonNumbersOfPlayers;
 
+    @FindBy(xpath = "//tbody[@class='table-body__game-list']")
+    private WebElement findScrabbleGame;
+
     public WebElement getLeftNumberOfPlayersButton() {
         return leftNumberOfPlayersButton;
     }
     public void leftNumberOfPlayersButtonClick(){
         leftNumberOfPlayersButton.click();
     }
+
+    public WebElement getFindScrabbleGame() { return findScrabbleGame; }
 
     public WebElement getUndoButtonNumbersOfPlayers() {
         return undoButtonNumbersOfPlayers;
@@ -72,10 +74,6 @@ public class MainPage {
     }
 
 
-    public void dragAndDrop2(WebDriver driver, WebElement rightNumberOfPlayersButton, int xOffset, int yOffset){
 
-        Actions builder = new Actions(driver);
-        Action dragAndDrop = builder.dragAndDropBy(rightNumberOfPlayersButton, xOffset, yOffset).build();
-        dragAndDrop.perform();
-    }
+
 }
