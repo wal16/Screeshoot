@@ -1,9 +1,19 @@
 package pageobjects.pages;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import pageobjects.BaseAccess;
 import pageobjects.User;
+import pageobjects.Waits;
 
-public class SignInPage {
+public class SignInPage extends BaseAccess{
+
+    public SignInPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, SignInPage.class);
+        this.mywait = new Waits(driver);
+    }
 
     @FindBy(linkText = "Logowanie")
     private WebElement logSide;
@@ -40,7 +50,12 @@ public class SignInPage {
         username.sendKeys(user.getName());
         password.sendKeys(user.getPass());
     }
-    public void clickOnSignIn() {logInbutton.click();}
 
-    public boolean showAlert() { return alert.isDisplayed();}
+    public void clickOnSignIn() {
+        logInbutton.click();
+        mywait.waitForElementToBeVisible(alert);
+    }
+
+    public boolean showAlert() {
+        return alert.isDisplayed();}
 }

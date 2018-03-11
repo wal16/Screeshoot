@@ -1,9 +1,17 @@
 package pageobjects.pages;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pageobjects.BaseAccess;
 import pageobjects.User;
+import pageobjects.Waits;
 
-public class SignUpPage {
+public class SignUpPage extends BaseAccess{
+
+    public SignUpPage(WebDriver driver) {
+        this.driver = driver;
+        this.mywait = new Waits(driver);
+    }
 
     @FindBy(linkText = "Rejestracja")
     private WebElement RegistationSide;

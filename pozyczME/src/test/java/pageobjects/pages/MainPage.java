@@ -7,10 +7,15 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pageobjects.BaseAccess;
 import pageobjects.Waits;
 
-public class MainPage {
+public class MainPage extends BaseAccess{
 
+    public MainPage (WebDriver driver) {
+        this.driver = driver;
+        this.mywait = new Waits(driver);
+    }
     @FindBy(linkText = "Wyloguj")
     private WebElement logOutbutton;
 
@@ -30,6 +35,7 @@ public class MainPage {
     private WebElement undoButtonNumbersOfPlayers;
 
     public WebElement getLeftNumberOfPlayersButton() {
+        mywait.waitForElementToBeVisible(leftNumberOfPlayersButton);
         return leftNumberOfPlayersButton;
     }
     public void leftNumberOfPlayersButtonClick(){

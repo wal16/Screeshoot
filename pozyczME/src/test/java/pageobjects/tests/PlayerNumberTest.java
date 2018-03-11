@@ -28,7 +28,7 @@ public class PlayerNumberTest extends BaseClassTest{
     @Test
     public void testClickOnTheLeftNumbersOfPlayers() {
 
-        mywait.waitForElementToBeClickable(mainPage.getLeftNumberOfPlayersButton());
+
         mainPage.getLeftNumberOfPlayersButton().click();
         assertTrue("Udało się przesunąć dolny przycisk limitu graczy", mainPage.getLeftNumberOfPlayersButton().getText().contains("3"));
 

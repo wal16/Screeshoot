@@ -7,16 +7,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import pageobjects.pages.*;
 
-public class BaseClassTest {
+public class BaseClassTest extends BaseAccess{
 
-    protected WebDriver driver;
-    private static final String URL = "http://app.pinapple.jdqz1.is-academy.pl/";
-    protected Waits mywait;
     protected SignUpPage signUp;
     protected MainPage mainPage;
     protected SignInPage signIn;
     protected User user;
-
 
     public void prepareEnvForTests(){
 
@@ -25,16 +21,9 @@ public class BaseClassTest {
         RegisterAndLogin(new User("aaaaa", "12345", "www@wp.pl"));
     }
 
-    protected void prepareDriver(){
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
-        driver = new ChromeDriver();
-        driver.get(URL);
-    }
-
     protected void initializeBasicPageFactoryWithWaits(){
-
         mywait = new Waits(driver);
-        signIn = PageFactory.initElements(driver, SignInPage.class);
+        signIn = new SignInPage(driver);
         signUp = PageFactory.initElements(driver, SignUpPage.class);
         mainPage = PageFactory.initElements(driver,MainPage.class);
 
