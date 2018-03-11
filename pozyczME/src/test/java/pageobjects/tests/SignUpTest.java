@@ -17,7 +17,7 @@ import pageobjects.pages.SignUpPage;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(DataProviderRunner.class)
-public class SignUp extends BaseClassTest{
+public class SignUpTest extends BaseClassTest{
 
     private SignUpPage signUp;
     private MainPage mainPage;

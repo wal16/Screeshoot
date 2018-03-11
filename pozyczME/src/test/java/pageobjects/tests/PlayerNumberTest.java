@@ -18,7 +18,7 @@ import pageobjects.pages.SignUpPage;
 
 import static org.junit.Assert.assertTrue;
 
-public class PlayerNumber extends BaseClassTest{
+public class PlayerNumberTest extends BaseClassTest{
 
     private SignUpPage signUp;
     private MainPage mainPage;

@@ -17,7 +17,7 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(DataDrivenTestRunner.class)
 @DataLoader(filePaths = { "src/test/resources/logIn.xml" }, loaderType = LoaderType.XML, writeData = false)
-public class SignIn extends BaseClassTest{
+public class SignInTest extends BaseClassTest{
 
     private SignInPage signIn;
 

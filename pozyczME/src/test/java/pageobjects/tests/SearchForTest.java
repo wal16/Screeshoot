@@ -13,7 +13,7 @@ import pageobjects.pages.MainPage;
 import pageobjects.pages.SignUpPage;
 import static org.junit.Assert.assertTrue;
 
-public class SearchFor extends BaseClassTest{
+public class SearchForTest extends BaseClassTest{
 
     private SearchForPage searchForPage;
     private SignUpPage signUp;

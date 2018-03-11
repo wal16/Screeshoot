@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.*;
 
 
-public class Favorites extends BaseClassTest {
+public class FavoritesTest extends BaseClassTest {
 
     private SignInPage signIn;
     private SignUpPage signUp;
