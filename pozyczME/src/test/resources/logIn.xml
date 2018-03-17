@@ -16,7 +16,7 @@
             <Description>User 2</Description>
             <InputData>
                 <Entry key="name" value="Jan.Kowalski" />
-                <Entry key="pass" value="123asdf" />
+                <Entry key="pass" value="123 sdf" />
             </InputData>
         </TestRecord>
 

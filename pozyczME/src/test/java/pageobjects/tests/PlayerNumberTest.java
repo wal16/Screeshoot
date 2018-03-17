@@ -1,21 +1,11 @@
 package pageobjects.tests;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pageobjects.BaseClassTest;
-import pageobjects.User;
-import pageobjects.Waits;
-import pageobjects.pages.MainPage;
-import pageobjects.pages.SignInPage;
-import pageobjects.pages.SignUpPage;
 
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class PlayerNumberTest extends BaseClassTest{
@@ -31,6 +21,16 @@ public class PlayerNumberTest extends BaseClassTest{
 
         mainPage.getLeftNumberOfPlayersButton().click();
         assertTrue("Udało się przesunąć dolny przycisk limitu graczy", mainPage.getLeftNumberOfPlayersButton().getText().contains("3"));
+
+    }
+
+    @Test
+    public void testClickOnTheLeftNumbersOfPlayersAndNotFindScrabbleGame() {
+
+      mywait.waitForElementToBeClickable(mainPage.getLeftNumberOfPlayersButton());
+      mainPage.getLeftNumberOfPlayersButton().click();
+
+        assertFalse("Udało się przesunąć dolny przycisk limitu graczy tak, że nie znajduje gry Scrabble", mainPage.getFindScrabbleGame().getText().contains("Scrabble"));
 
     }
 
