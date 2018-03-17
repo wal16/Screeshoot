@@ -32,6 +32,7 @@ public class SignInTest extends BaseClassTest{
         signIn.clickOnLogSide();
         signIn.setUserData(user);
         signIn.clickOnSignIn();
+        mywait.waitForElementToBeVisible(signIn.getAlert());
         assertTrue("Alert isn't displayed", signIn.showAlert());
     }
 

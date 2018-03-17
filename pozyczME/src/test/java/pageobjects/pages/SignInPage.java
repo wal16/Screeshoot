@@ -53,7 +53,6 @@ public class SignInPage extends BaseAccess{
 
     public void clickOnSignIn() {
         logInbutton.click();
-        mywait.waitForElementToBeVisible(alert);
     }
 
     public boolean showAlert() {

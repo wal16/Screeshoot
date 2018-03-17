@@ -24,8 +24,8 @@ public class BaseClassTest extends BaseAccess{
     protected void initializeBasicPageFactoryWithWaits(){
         mywait = new Waits(driver);
         signIn = new SignInPage(driver);
-        signUp = PageFactory.initElements(driver, SignUpPage.class);
-        mainPage = PageFactory.initElements(driver,MainPage.class);
+        signUp = new SignUpPage(driver);
+        mainPage = new MainPage(driver);
 
     }
 
@@ -33,14 +33,12 @@ public class BaseClassTest extends BaseAccess{
 
         mywait.waitForElementToBeVisible( signIn.getUsername());
         signUp.clickOnRegisterSide();
-        mywait.waitForElementToBeClickable( signUp.getEmail());
         signUp.setUserData(user);
         signUp.clickOnRegister();
         signIn.clickOnLogSide();
         mywait.waitForElementToBeVisible( signIn.getUsername());
         signIn.setUserData(user);
         signIn.clickOnSignIn();
-        mywait.waitForElementToBeVisible( mainPage.getLogOutbutton());
     }
 
     @After

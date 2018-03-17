@@ -37,9 +37,7 @@ public class PlayerNumberTest extends BaseClassTest{
     @Test
     public void testClickOnTheUndoNumbersOfPlayers() {
 
-        mywait.waitForElementToBeClickable( mainPage.getLeftNumberOfPlayersButton());
         mainPage.leftNumberOfPlayersButtonClick();
-        mywait.waitForElementToBeClickable( mainPage.getUndoButtonNumbersOfPlayers());
         mainPage.undoButtonNumbersOfPlayersClick();
         assertTrue("Udało się przywrócić początkowe ustawienia limitu graczy", mainPage.getLeftNumberOfPlayersButton().getText().contains("2"));
 

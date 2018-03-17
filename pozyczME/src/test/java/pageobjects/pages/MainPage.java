@@ -14,6 +14,7 @@ public class MainPage extends BaseAccess{
 
     public MainPage (WebDriver driver) {
         this.driver = driver;
+        PageFactory.initElements(driver, MainPage.class);
         this.mywait = new Waits(driver);
     }
     @FindBy(linkText = "Wyloguj")
@@ -39,6 +40,7 @@ public class MainPage extends BaseAccess{
         return leftNumberOfPlayersButton;
     }
     public void leftNumberOfPlayersButtonClick(){
+        mywait.waitForElementToBeClickable(getLeftNumberOfPlayersButton());
         leftNumberOfPlayersButton.click();
     }
 
@@ -47,11 +49,13 @@ public class MainPage extends BaseAccess{
     }
 
     public void undoButtonNumbersOfPlayersClick(){
+        mywait.waitForElementToBeClickable(getUndoButtonNumbersOfPlayers());
         undoButtonNumbersOfPlayers.click();
     }
 
 
     public WebElement getLogOutbutton() {
+        mywait.waitForElementToBeVisible(getLogOutbutton());
         return logOutbutton;
     }
 
