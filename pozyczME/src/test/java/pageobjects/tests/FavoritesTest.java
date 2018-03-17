@@ -26,18 +26,15 @@ public class FavoritesTest extends BaseClassTest {
     @Before
     public void setUp() {
         prepareEnvForTests();
-        myProfilePage = PageFactory.initElements(driver, MyProfilePage.class);
+        myProfilePage = new MyProfilePage(driver);
     }
 
     @Test
     public void addToFavorites() {
 
-        mywait.waitForElementToBeClickable( mainPage.getMenuButtonOurGames());
         mainPage.clickOnOurGames();
         mainPage.clickOnHeartbutton();
-        mywait.waitForElementToBeClickable( mainPage.getMenuButtonMyProfile());
         mainPage.clickOnMyProfile();
-        mywait.waitForElementToBeVisible( myProfilePage.getGameName());
         assertTrue(myProfilePage.getGameName().getText().length() > 0);
     }
 

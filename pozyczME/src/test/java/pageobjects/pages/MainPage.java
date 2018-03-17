@@ -70,10 +70,12 @@ public class MainPage extends BaseAccess{
 
 
     public void clickOnOurGames() {
+        mywait.waitForElementToBeClickable(getMenuButtonOurGames());
         menuButtonOurGames.click();
     }
 
     public void clickOnMyProfile() {
+        mywait.waitForElementToBeClickable(getMenuButtonMyProfile());
         menuButtonMyProfile.click();
     }
 
