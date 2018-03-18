@@ -18,7 +18,7 @@ public class PlayerNumberTest extends BaseClassTest{
     @Test
     public void testClickOnTheLeftNumbersOfPlayers() {
 
-
+        mywait.waitForElementToBeVisible(mainPage.getLeftNumberOfPlayersButton());
         mainPage.getLeftNumberOfPlayersButton().click();
         assertTrue("Udało się przesunąć dolny przycisk limitu graczy", mainPage.getLeftNumberOfPlayersButton().getText().contains("3"));
 
@@ -37,7 +37,9 @@ public class PlayerNumberTest extends BaseClassTest{
     @Test
     public void testClickOnTheUndoNumbersOfPlayers() {
 
+        mywait.waitForElementToBeClickable(mainPage.getLeftNumberOfPlayersButton());
         mainPage.leftNumberOfPlayersButtonClick();
+        mywait.waitForElementToBeClickable(mainPage.getUndoButtonNumbersOfPlayers());
         mainPage.undoButtonNumbersOfPlayersClick();
         assertTrue("Udało się przywrócić początkowe ustawienia limitu graczy", mainPage.getLeftNumberOfPlayersButton().getText().contains("2"));
 

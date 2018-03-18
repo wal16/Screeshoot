@@ -43,6 +43,7 @@ public class SignUpTest extends BaseClassTest{
     public void checkSignUpWithGoodData(User user){
 
         RegisterAndLogin(user);
+        mywait.waitForElementToBeClickable(mainPage.getLogOutbutton());
         assertTrue("I cant find WYLOGUJ button: ", mainPage.getLogOutbutton().getText().equals("Wyloguj"));
     }
 

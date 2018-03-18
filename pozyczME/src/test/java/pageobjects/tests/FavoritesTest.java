@@ -34,6 +34,7 @@ public class FavoritesTest extends BaseClassTest {
 
         mainPage.clickOnOurGames();
         mainPage.clickOnHeartbutton();
+        mywait.waitForElementToBeClickable(mainPage.getMenuButtonMyProfile());
         mainPage.clickOnMyProfile();
         assertTrue(myProfilePage.getGameName().getText().length() > 0);
     }
