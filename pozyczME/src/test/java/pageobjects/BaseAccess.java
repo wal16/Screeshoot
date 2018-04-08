@@ -25,7 +25,7 @@ public class BaseAccess {
             }
         }
         if(buildEnv.equals("DEV")){
-            System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
+            System.setProperty("webdriver.chrome.driver", "/home/waldemar/Pobrane/jdqz1-pinapple/pozyczME/src/test/resources/chromedriver");
             driver = new ChromeDriver();
         }
 
