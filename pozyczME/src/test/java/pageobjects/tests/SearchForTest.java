@@ -10,6 +10,7 @@ import org.junit.runner.Description;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import pageobjects.pages.SearchForPage;
 import pageobjects.pages.SignInPage;
@@ -60,6 +61,23 @@ public class SearchForTest extends BaseClassTest {
         searchForPage.clickOnOurGamesbutton();
         searchForPage.setSearchField("Scrabble");
         assertTrue("SearchField is not displayed", searchForPage.isSearchFieldVisible());
+    }
+    @Test
+
+    public void testScreenShot() throws Exception{
+
+        WebDriver driver ;
+        System.setProperty("webdriver.chrome.driver","/home/waldemar/Pobrane/Screeshoot/pozyczME/src/test/resources/chromedriver");
+        driver = new ChromeDriver();
+
+        //goto url
+
+        driver.get("http://app.pinapple.jdqz1.is-academy.pl/");
+
+        //Call take screenshot function
+
+        this.takeSnapShot(driver, "/home/waldemar/Pobrane/test.png") ;
+
     }
 
         public static void takeSnapShot(WebDriver webdriver, String fileWithPath) throws Exception {
